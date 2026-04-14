@@ -1,25 +1,25 @@
+
+
 public class Usecase5 {
+
     public static void main(String[] args) {
-        String name;
+        String greetingTarget;
 
-        if (args.length > 0) {
+        if (args.length == 0) {
+            greetingTarget = "World";
+        } else {
             StringBuilder nameBuilder = new StringBuilder();
-
-            for (int i = 0; i < args.length; i++) {
-                nameBuilder.append(args[i]);
-
-                if (i < args.length - 1) {
+            
+            for (String currentName : args) {
+                
+                if (nameBuilder.length() > 0) {
                     nameBuilder.append(", ");
                 }
+                nameBuilder.append(currentName);
             }
-            name = nameBuilder.toString();
-        } else {
-            name = "World";
+            greetingTarget = nameBuilder.toString();
         }
 
-      
-        System.out.println("Hello, " + name + "!");
-
-      
+        System.out.println("Hello, " + greetingTarget + "!");
     }
 }
